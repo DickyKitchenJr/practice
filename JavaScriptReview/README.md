@@ -1,3 +1,4 @@
 # JavaScript Review
 
-## An overview of various JS techniques
+## Purpose:
+- An overview of various JS techniques
