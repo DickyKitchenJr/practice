@@ -1,4 +1,3 @@
-import { describe, expect, it } from "vitest";
 import isAString from "../components/IsAString";
 
 describe('it checks if a value is a string', () => {
