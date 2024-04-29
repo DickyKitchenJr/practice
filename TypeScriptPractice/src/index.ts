@@ -56,10 +56,23 @@ const enum TypesOfHeroes {
 }
 
 //the following should have "Venom" as the value
-let myFavoriteCharacter: TypesOfHeroes = TypesOfHeroes.AntiHero
+let myFavoriteCharacter: TypesOfHeroes = TypesOfHeroes.AntiHero;
 
 //by default TypeScript sets the first value in the enum to 0 with each one following being one more so...
-const enum EnumOrder {ValueOfZero, ValueOfOne, ValueOfTwo}
+const enum EnumOrder {
+  ValueOfZero,
+  ValueOfOne,
+  ValueOfTwo,
+}
 
 //and if you set the first value to a number, the following values will be one more by default so...
-const enum AdditionalEnumOrder {ValueOfFive = 5, ValueOfSix, ValueOrSeven}
+const enum AdditionalEnumOrder {
+  ValueOfFive = 5,
+  ValueOfSix,
+  ValueOrSeven,
+}
+
+//best practice when creating functions is to annotate the parameter and return types
+function sumOfTwoNumbers(numOne: number, numTwo: number): number {
+  return numOne + numTwo;
+}
