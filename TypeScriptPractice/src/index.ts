@@ -76,3 +76,47 @@ const enum AdditionalEnumOrder {
 function sumOfTwoNumbers(numOne: number, numTwo: number): number {
   return numOne + numTwo;
 }
+
+//object types define the allowable values and their types within the {}
+let randomObject: {
+  favColor: string;
+  isVegan: boolean;
+  mealsPerDay: number;
+} = { favColor: "clear", isVegan: false, mealsPerDay: 3 };
+
+//if a value needs to be optional, add a ? to it to avoid an error for it not being included as shown below
+let lifeSpan: {
+  yearBorn: number;
+  yearDied?: number;
+} = { yearBorn: 1800 };
+
+//to prevent a value from being changed, you can use readonly
+let myAuthorBio: {
+  name: string;
+  readonly firstBook: string;
+} = {
+  name: "Dicky Kitchen Jr",
+  firstBook: "Prey/Pray: Origin of The Average Man",
+};
+
+//if a setup needs to be reused you can create a custom type
+type AuthorBio = {
+  name: string;
+  numberOfBooks: number;
+  listOfBooks: string[];
+  booksSold: (previousSold: number, newSold: number) => number;
+};
+
+let author: AuthorBio = {
+  name: "Random Author",
+  numberOfBooks: 1,
+  listOfBooks: ["Random Book Name"],
+  booksSold: (previousSold, newSold) => previousSold + newSold,
+};
+
+let authorTwo: AuthorBio = {
+  name: "Random Author 2",
+  numberOfBooks: 1,
+  listOfBooks: ["Random Book Name 2"],
+  booksSold: (previousSold, newSold) => previousSold + newSold,
+};
