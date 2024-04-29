@@ -24,4 +24,6 @@ let mysteryArray = [1, "two", 3, "four"];
 mysteryArray.push(5);
 mysteryArray.push("six");
 let tupleType = ["Years coding", 3];
+tupleType.push("push allows you to break the rules", "not good");
+let myFavoriteCharacter = "Venom";
 //# sourceMappingURL=index.js.map
