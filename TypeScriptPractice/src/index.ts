@@ -6,7 +6,7 @@ let firstName: string = "Dicky";
 
 let talented: boolean = true;
 
-let skillsArray: string[] = ["React", "JavaScript", "TypeScript"]
+let skillsArray: string[] = ["React", "JavaScript", "TypeScript"];
 
 let timeToRetire: boolean = false;
 
@@ -31,11 +31,17 @@ mystery = true;
 
 //one potential use case for the 'any' type would be if you create a function that takes a parameter of unknown type
 //when setting parameters the type needs to be set to prevent errors being thrown by default
-const mysteryFunction = (value:any) =>{
-  console.log(value)
-}
+const mysteryFunction = (value: any) => {
+  console.log(value);
+};
 
 // arrays sometimes need to accept more than one type, for that you can list multiple types
-let mysteryArray: (string | number)[] = [1, "two", 3, "four"]
+let mysteryArray: (string | number)[] = [1, "two", 3, "four"];
 mysteryArray.push(5);
 mysteryArray.push("six");
+
+//a tuple is a fixed length array where each element has a particular type
+let tupleType: [string, number] = ["Years coding", 3];
+//the push method can be a problem with tuples because it allows you to break the intended type by adding more than the predetermined length
+//tupleType is defined as only having a length of 2, but using push adds to it without throwing an error
+tupleType.push("push allows you to break the rules", "not good");
