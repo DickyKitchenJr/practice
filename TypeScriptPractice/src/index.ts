@@ -45,3 +45,21 @@ let tupleType: [string, number] = ["Years coding", 3];
 //the push method can be a problem with tuples because it allows you to break the intended type by adding more than the predetermined length
 //tupleType is defined as only having a length of 2, but using push adds to it without throwing an error
 tupleType.push("push allows you to break the rules", "not good");
+
+//a enum is a list of related constants
+//when naming enums, use PascalCase (first letter of every word capital)
+//to simplify the output to index.js, use const to define the enum
+const enum TypesOfHeroes {
+  Standard = "Spider-Man",
+  AntiHero = "Venom",
+  Unsung = "first person to drink tea",
+}
+
+//the following should have "Venom" as the value
+let myFavoriteCharacter: TypesOfHeroes = TypesOfHeroes.AntiHero
+
+//by default TypeScript sets the first value in the enum to 0 with each one following being one more so...
+const enum EnumOrder {ValueOfZero, ValueOfOne, ValueOfTwo}
+
+//and if you set the first value to a number, the following values will be one more by default so...
+const enum AdditionalEnumOrder {ValueOfFive = 5, ValueOfSix, ValueOrSeven}
