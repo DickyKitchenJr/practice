@@ -120,3 +120,30 @@ let authorTwo: AuthorBio = {
   listOfBooks: ["Random Book Name 2"],
   booksSold: (previousSold, newSold) => previousSold + newSold,
 };
+
+// a union type is the ability to assign one type OR another type
+function NumberOrString(input: number | string): number | string {
+  if (typeof input === "number") {
+    return input + 1;
+  } else {
+    return input;
+  }
+}
+
+let eitherType: boolean | string[] = true;
+eitherType = ["still true"];
+
+//intersection type is the ability to assign one type AND another type
+//(most useful for combining custom types as standard types don't make sense to combine)
+type Blue = {
+  blue: () => void;
+};
+
+type Black = {
+  black: () => void;
+};
+
+let bruise: Black & Blue = {
+  black: () => {},
+  blue: () => {},
+};
