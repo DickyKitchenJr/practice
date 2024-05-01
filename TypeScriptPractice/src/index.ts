@@ -147,3 +147,7 @@ let bruise: Black & Blue = {
   black: () => {},
   blue: () => {},
 };
+
+//literal types are useful when you want to ensure that something can only be set to a specific value
+let fiftyOrFive: 50 | 5 = 50;
+fiftyOrFive = 5; //anything other that 50 or 5 will throw an error
