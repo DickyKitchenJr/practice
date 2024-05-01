@@ -152,11 +152,12 @@ let bruise: Black & Blue = {
 let fiftyOrFive: 50 | 5 = 50;
 fiftyOrFive = 5; //anything other that 50 or 5 will throw an error
 
-//null types allow for null values to be used
-function anythingHere(input: string | null): string {
+//null and undefined types allow for null and undefined values to be used
+function anythingHere(input: string | null | undefined): string {
   if (typeof input === "string") {
     return "There is something here";
   } else {
     return "There is nothing here";
   }
 }
+
