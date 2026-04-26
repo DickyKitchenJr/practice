@@ -35,4 +35,45 @@ const registerUser = async (req, res) => {
   }
 };
 
-export { registerUser };
+const loginUser = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username: username.toLowerCase() });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const isMatch = await user.comparePassword(password);
+
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    res.status(200).json({
+      message: "User logged in successfully",
+      user: { id: user._id, email: user.email, username: user.username },
+    });
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+const logoutUser = async (req, res) => {
+  try {
+    const { username } = req.body;
+    const user = await User.findOne({ username: username.toLowerCase() });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User logged out successfully" });
+  } catch (error) {
+    console.error("Error logging out user:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+export { registerUser, loginUser, logoutUser };
