@@ -76,4 +76,30 @@ const logoutUser = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser, logoutUser };
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password"); // Exclude password field
+    res.status(200).json({ message: "Users retrieved successfully", users });
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const { username } = req.body;
+    const user = await User.findOneAndDelete({ username: username.toLowerCase() });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User deleted successfully", user });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+export { registerUser, loginUser, logoutUser, deleteUser, getAllUsers };
